@@ -1,0 +1,87 @@
+时光旅程模板：文件与存放内容
+================================
+
+根目录
+------
+index.html
+    网站入口和基础页面结构。一般不需要频繁修改。
+
+README.md
+    运行、修改和部署说明。
+
+项目结构.txt
+    当前文件。
+
+
+css
+---
+css/style.css
+    网站全部样式，包括：
+    1. 开场封面；
+    2. 顶部导航；
+    3. 横向场景；
+    4. 照片卡片；
+    5. 人物动画；
+    6. 手机端布局；
+    7. 弹窗。
+
+
+js
+--
+js/data.js
+    最重要的内容文件。
+    日期、标题、正文、引用、照片和背景路径都在这里修改。
+
+js/app.js
+    负责：
+    1. 根据 data.js 生成章节；
+    2. 纵向滚动转换为横向移动；
+    3. 章节导航；
+    4. 进度条；
+    5. 人物行走动画；
+    6. 手机端章节识别。
+
+js/modal.js
+    负责点击照片后的故事弹窗。
+
+js/audio.js
+    负责背景音乐播放和暂停。
+
+
+assets/backgrounds
+------------------
+存放每个章节的场景背景。
+当前 scene-01.svg 至 scene-05.svg 都是可替换的示意图。
+
+
+assets/character
+----------------
+traveler.svg
+    固定在画面下方的人物素材。
+
+
+assets/photos
+-------------
+存放真实纪念照片。
+当前 memory-01.svg 至 memory-05.svg 都是占位图。
+
+
+assets/audio
+------------
+将音乐命名为 background.mp3 后放在这里。
+必须使用自己拥有版权或使用许可的音乐。
+
+
+建议的真实素材命名
+------------------
+assets/photos/
+    2021-beginning.jpg
+    2022-summer.jpg
+    2023-night.jpg
+    2024-forward.jpg
+
+assets/backgrounds/
+    campus-day.webp
+    summer-road.webp
+    rainy-night.webp
+    sunrise.webp
