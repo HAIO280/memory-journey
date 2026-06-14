@@ -11,12 +11,13 @@
   </defs>
   <rect width="1920" height="1080" fill="url(#sky2)"/>
 
+
   <circle cx="390" cy="195" r="84" fill="#ffd05e" opacity=".72"/>
   <path d="M0 610 Q250 430 480 600 T960 560 T1440 590 T1920 520 V1080 H0z" fill="#9bc788" opacity=".86"/>
   <path d="M0 720 Q270 530 560 710 T1120 650 T1600 700 T1920 620 V1080 H0z" fill="#6f9f72" opacity=".94"/>
   <rect y="790" width="1920" height="290" fill="url(#ground2)"/>
-  <path d="M0 925 C300 870 550 960 850 900 S1450 855 1920 930" fill="none" stroke="#e8d9bd" stroke-width="82" opacity=".78"/>
-  <g opacity=".55" fill="#fff">
+  <path d="M0 925 C300 870 550 960 850 900 S1450 855 1920 930" fill="none" stroke="#eadcc4" stroke-width="82" opacity=".78"/>
+  <g opacity=".5" fill="#fff">
     <ellipse cx="240" cy="225" rx="125" ry="36"/>
     <ellipse cx="320" cy="210" rx="90" ry="42"/>
     <ellipse cx="1420" cy="250" rx="150" ry="42"/>

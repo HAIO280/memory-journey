@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9e7ea"/>
+      <stop offset=".52" stop-color="#f5e3d6"/>
+      <stop offset="1" stop-color="#e7c9bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="36" fill="url(#bg)"/>
+  <circle cx="1040" cy="90" r="190" fill="#fff" opacity=".34"/>
+  <circle cx="120" cy="580" r="150" fill="#d76d59" opacity=".14"/>
+  <path d="M0 500 C220 420 420 530 620 470 S980 420 1200 505 V630 H0z" fill="#778d7a" opacity=".6"/>
+  <path d="M0 535 C230 470 470 560 760 505 S1040 480 1200 545" fill="none" stroke="#f0ddc1" stroke-width="64" opacity=".8"/>
+  <text x="110" y="210" font-family="Georgia,serif" font-size="88" font-weight="700" fill="#253044">拾光</text>
+  <text x="110" y="282" font-family="Arial,sans-serif" font-size="32" letter-spacing="8" fill="#a9473a">MEMORY ARCHIVE</text>
+  <text x="110" y="360" font-family="Arial,sans-serif" font-size="34" fill="#435066">沿着时间的方向，重新经过那些重要的时刻。</text>
+  <circle cx="1050" cy="420" r="54" fill="#d76d59"/>
+  <path d="M1050 382l10 26 26 10-26 10-10 26-10-26-26-10 26-10z" fill="#fffaf4"/>
+</svg>

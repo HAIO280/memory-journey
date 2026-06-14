@@ -1,50 +1,107 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="一个用于记录重要回忆的横向滚动纪念网站模板">
-  <title>时光旅程｜纪念网站模板</title>
+  <meta name="description" content="一个可以横向滚动浏览的互动纪念网站">
+  <meta name="theme-color" content="#f3e9df">
+
+  <meta property="og:title" content="拾光｜我们的时光档案">
+  <meta property="og:description" content="沿着时间的方向，重新经过那些值得被认真记住的时刻。">
+  <meta property="og:image" content="./assets/share-cover.svg">
+  <meta property="og:type" content="website">
+
+  <title>拾光｜我们的时光档案</title>
+
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
   <!-- 开场封面 -->
-  <section id="intro" class="intro" aria-labelledby="intro-title">
+  <section id="intro" class="intro" aria-labelledby="introTitle">
+    <div class="intro__ornament intro__ornament--one"></div>
+    <div class="intro__ornament intro__ornament--two"></div>
+
     <div class="intro__paper">
-      <p class="intro__eyebrow">MEMORY JOURNEY</p>
-      <h1 id="intro-title">有些故事，值得被好好收藏。</h1>
-      <p class="intro__text">
+      <p id="introEyebrow" class="intro__eyebrow">MEMORY ARCHIVE</p>
+      <h1 id="introTitle">有些故事，值得被好好收藏。</h1>
+      <p id="introText" class="intro__text">
         向下滚动，沿着时间的方向，重新经过那些重要的时刻。
       </p>
-      <button id="startButton" class="primary-button" type="button">
-        开始这段旅程
-      </button>
-      <p class="intro__tip">电脑端：滚轮 / 方向键　手机端：向上滑动</p>
+
+      <div class="intro__actions">
+        <button id="startButton" class="button button--primary" type="button">
+          <span>开始旅程</span>
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <button id="continueButton" class="button button--ghost is-hidden" type="button">
+          继续上次浏览
+        </button>
+
+        <button id="introMapButton" class="button button--ghost" type="button">
+          先看时间地图
+        </button>
+      </div>
+
+      <div class="intro__meta">
+        <span>6 个章节</span>
+        <span>·</span>
+        <span>原创静态模板</span>
+        <span>·</span>
+        <span>支持手机端</span>
+      </div>
+
+      <p class="intro__tip">
+        电脑端：滚轮 / 方向键　手机端：向上滑动
+      </p>
     </div>
   </section>
 
-  <!-- 固定在浏览器窗口内的旅程舞台 -->
+  <!-- 主舞台 -->
   <main id="stage" class="stage" aria-label="时光旅程">
     <header class="topbar">
-      <a class="brand" href="#" aria-label="返回旅程开头">
-        <span class="brand__mark">✦</span>
-        <span>时光旅程</span>
+      <a class="brand" href="#" id="brandLink" aria-label="返回旅程开头">
+        <span class="brand__mark" aria-hidden="true">✦</span>
+        <span id="brandName">拾光</span>
       </a>
 
       <nav id="chapterNav" class="chapter-nav" aria-label="章节导航"></nav>
 
       <div class="topbar__actions">
-        <button id="audioButton" class="icon-button" type="button" aria-label="播放或暂停背景音乐">
-          <span id="audioIcon" aria-hidden="true">♫</span>
-          <span id="audioLabel">音乐</span>
+        <button id="mapButton" class="icon-button" type="button" title="时间地图">
+          <span aria-hidden="true">⌘</span>
+          <span class="icon-button__label">地图</span>
         </button>
-        <button id="restartButton" class="icon-button" type="button">
-          ↺ 重看
+
+        <button id="galleryButton" class="icon-button" type="button" title="照片墙">
+          <span aria-hidden="true">▦</span>
+          <span class="icon-button__label">照片</span>
+        </button>
+
+        <button id="audioButton" class="icon-button" type="button" title="播放背景音乐">
+          <span id="audioIcon" aria-hidden="true">♫</span>
+          <span id="audioLabel" class="icon-button__label">音乐</span>
+        </button>
+
+        <button id="themeButton" class="icon-button" type="button" title="切换主题">
+          <span id="themeIcon" aria-hidden="true">☾</span>
+          <span class="icon-button__label">主题</span>
+        </button>
+
+        <button id="moreButton" class="icon-button icon-button--compact" type="button" title="更多功能">
+          <span aria-hidden="true">•••</span>
         </button>
       </div>
     </header>
+
+    <div id="moreMenu" class="more-menu" hidden>
+      <button id="shareButton" type="button">复制网站链接</button>
+      <button id="fullscreenButton" type="button">进入全屏</button>
+      <button id="helpButton" type="button">操作帮助</button>
+      <button id="restartButton" type="button">回到旅程起点</button>
+    </div>
 
     <div class="progress" aria-hidden="true">
       <div id="progressBar" class="progress__bar"></div>
@@ -58,6 +115,20 @@
         <span class="traveler__shadow"></span>
       </div>
 
+      <button id="previousButton" class="chapter-control chapter-control--previous" type="button" aria-label="上一章">
+        ←
+      </button>
+
+      <button id="nextButton" class="chapter-control chapter-control--next" type="button" aria-label="下一章">
+        →
+      </button>
+
+      <div class="journey-status" aria-live="polite">
+        <span id="chapterNumber">01</span>
+        <span class="journey-status__line"></span>
+        <span id="chapterStatus">故事开始的地方</span>
+      </div>
+
       <div class="scroll-hint" aria-hidden="true">
         <span>继续滚动</span>
         <span class="scroll-hint__arrow">→</span>
@@ -65,32 +136,86 @@
     </div>
   </main>
 
-  <!-- 桌面端用于产生纵向滚动距离 -->
+  <!-- 桌面端滚动空间 -->
   <div id="scrollSpace" class="scroll-space" aria-hidden="true"></div>
 
-  <!-- 照片/故事弹窗 -->
-  <dialog id="memoryModal" class="memory-modal">
-    <button id="modalClose" class="memory-modal__close" type="button" aria-label="关闭弹窗">×</button>
-    <div class="memory-modal__image-wrap">
-      <img id="modalImage" src="" alt="">
+  <!-- 时间地图 -->
+  <dialog id="mapDialog" class="panel-dialog">
+    <div class="panel-dialog__header">
+      <div>
+        <p class="panel-dialog__eyebrow">JOURNEY MAP</p>
+        <h2>时间地图</h2>
+      </div>
+      <button class="dialog-close" type="button" data-close-dialog="mapDialog" aria-label="关闭">×</button>
     </div>
-    <div class="memory-modal__content">
-      <p id="modalDate" class="memory-modal__date"></p>
-      <h2 id="modalTitle"></h2>
-      <p id="modalText"></p>
+    <div id="mapList" class="map-list"></div>
+  </dialog>
+
+  <!-- 单段回忆 -->
+  <dialog id="memoryDialog" class="memory-dialog">
+    <button class="dialog-close memory-dialog__close" type="button" data-close-dialog="memoryDialog" aria-label="关闭">×</button>
+    <div class="memory-dialog__image-wrap">
+      <img id="memoryImage" src="" alt="">
+    </div>
+    <div class="memory-dialog__content">
+      <p id="memoryDate" class="memory-dialog__date"></p>
+      <h2 id="memoryTitle"></h2>
+      <p id="memoryLocation" class="memory-dialog__location"></p>
+      <p id="memoryText" class="memory-dialog__text"></p>
+      <blockquote id="memoryQuote" class="memory-dialog__quote"></blockquote>
+      <div id="memoryTags" class="tag-list"></div>
     </div>
   </dialog>
 
-  <!-- 不直接设置 src，避免未放音乐时产生报错 -->
-  <audio id="backgroundMusic" loop preload="none"></audio>
+  <!-- 照片墙 -->
+  <dialog id="galleryDialog" class="panel-dialog panel-dialog--wide">
+    <div class="panel-dialog__header">
+      <div>
+        <p class="panel-dialog__eyebrow">MEMORY WALL</p>
+        <h2>照片墙</h2>
+      </div>
+      <button class="dialog-close" type="button" data-close-dialog="galleryDialog" aria-label="关闭">×</button>
+    </div>
+    <div id="galleryGrid" class="gallery-grid"></div>
+  </dialog>
+
+  <!-- 写给未来 -->
+  <dialog id="letterDialog" class="letter-dialog">
+    <button class="dialog-close letter-dialog__close" type="button" data-close-dialog="letterDialog" aria-label="关闭">×</button>
+    <div class="letter-dialog__paper">
+      <p class="letter-dialog__eyebrow">A LETTER TO THE FUTURE</p>
+      <h2 id="letterTitle">写给未来的一封信</h2>
+      <div id="letterText" class="letter-dialog__text"></div>
+      <p id="letterSign" class="letter-dialog__sign"></p>
+    </div>
+  </dialog>
+
+  <!-- 操作帮助 -->
+  <dialog id="helpDialog" class="help-dialog">
+    <button class="dialog-close" type="button" data-close-dialog="helpDialog" aria-label="关闭">×</button>
+    <p class="panel-dialog__eyebrow">HOW TO EXPLORE</p>
+    <h2>操作帮助</h2>
+    <div class="help-grid">
+      <div><kbd>滚轮</kbd><span>向前或向后旅行</span></div>
+      <div><kbd>← / →</kbd><span>切换相邻章节</span></div>
+      <div><kbd>M</kbd><span>播放或暂停音乐</span></div>
+      <div><kbd>G</kbd><span>打开照片墙</span></div>
+      <div><kbd>T</kbd><span>切换深浅主题</span></div>
+      <div><kbd>Esc</kbd><span>关闭弹窗或菜单</span></div>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <audio id="backgroundMusic" loop preload="metadata">
+    <source src="./assets/audio/memory-ambient.wav" type="audio/wav">
+  </audio>
 
   <noscript>
     <div class="noscript">请启用 JavaScript 后查看这个互动网站。</div>
   </noscript>
 
   <script src="./js/data.js"></script>
-  <script src="./js/modal.js"></script>
-  <script src="./js/audio.js"></script>
   <script src="./js/app.js"></script>
 </body>
 </html>
